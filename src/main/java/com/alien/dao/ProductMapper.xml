@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.alien.dao.ProductMapper">
+    <insert id="insertProduct" parameterType="com.alien.pojo.Product">
+        insert into portfolio_website.product (item_id,name,image,price,category,sort_by_rank,sales_volume) values (#{itemId},#{name},#{image},#{price},#{category},#{sortByRank},#{salesVolume})
+    </insert>
+
+    <select id="getProductList" resultType="com.alien.pojo.Product">
+        select * from portfolio_website.product
+    </select>
+
+</mapper>

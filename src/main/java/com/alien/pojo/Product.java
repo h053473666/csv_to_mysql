@@ -1,7 +1,6 @@
 package com.alien.pojo;
 
 public class Product {
-
     private String itemId;
     private String name;
     private String image;
@@ -77,5 +76,18 @@ public class Product {
 
     public void setSalesVolume(int salesVolume) {
         this.salesVolume = salesVolume;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "itemId='" + itemId + '\'' +
+                ", name='" + name + '\'' +
+                ", image='" + image + '\'' +
+                ", price=" + price +
+                ", category='" + category + '\'' +
+                ", sortByRank=" + sortByRank +
+                ", salesVolume=" + salesVolume +
+                '}';
     }
 }
