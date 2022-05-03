@@ -7,7 +7,6 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import org.apache.ibatis.session.SqlSession;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -16,7 +15,7 @@ public class ProductService {
 
     public static void main(String[] args) throws IOException, CsvValidationException {
 
-        String filePath = "src/main/resources/product-csv/product.csv";
+        String filePath = "src/main/resources/csv/product.csv";
         String[] row; //字串array
         Product product = new Product();
         int num = 0;
@@ -33,13 +32,7 @@ public class ProductService {
         ProductMapper productMapper = sqlSession.getMapper(ProductMapper.class);
 
         while((row = openCSVReader.readNext()) != null){
-            product.setItemId(row[0]);
-            product.setName(row[1]);
-            product.setImage(row[2]);
-            product.setPrice(Integer.parseInt(row[3]));
-            product.setCategory(row[4]);
-            product.setSortByRank(Integer.parseInt(row[5]));
-            product.setSalesVolume(Integer.parseInt(row[6]));
+            product.setFromRow(row);
             productMapper.insertProduct(product);
 
             num += 1;
@@ -49,8 +42,7 @@ public class ProductService {
             }
         }
 
-
-
+        sqlSession.commit();
         sqlSession.close();
     }
 

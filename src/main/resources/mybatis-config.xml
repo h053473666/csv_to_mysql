@@ -22,6 +22,7 @@
 
     <mappers>
         <mapper resource="com/alien/dao/ProductMapper.xml"/>
+        <mapper resource="com/alien/dao/SimilarMapper.xml"/>
     </mappers>
 
 </configuration>

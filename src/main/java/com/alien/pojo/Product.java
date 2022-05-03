@@ -1,6 +1,8 @@
 package com.alien.pojo;
 
-public class Product {
+import com.alien.utils.CsvRow;
+
+public class Product implements CsvRow {
     private String itemId;
     private String name;
     private String image;
@@ -8,6 +10,7 @@ public class Product {
     private String category;
     private int sortByRank;
     private int salesVolume;
+
 
     public Product() {
     }
@@ -89,5 +92,16 @@ public class Product {
                 ", sortByRank=" + sortByRank +
                 ", salesVolume=" + salesVolume +
                 '}';
+    }
+
+    @Override
+    public void setFromRow(String[] row) {
+        this.itemId = row[0];
+        this.name = row[1];
+        this.image = row[2];
+        this.price = Integer.parseInt(row[3]);
+        this.category = row[4];
+        this.sortByRank = Integer.parseInt(row[5]);
+        this.salesVolume = Integer.parseInt(row[6]);
     }
 }

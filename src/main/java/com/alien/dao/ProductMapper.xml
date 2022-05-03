@@ -8,8 +8,4 @@
         insert into portfolio_website.product (item_id,name,image,price,category,sort_by_rank,sales_volume) values (#{itemId},#{name},#{image},#{price},#{category},#{sortByRank},#{salesVolume})
     </insert>
 
-    <select id="getProductList" resultType="com.alien.pojo.Product">
-        select * from portfolio_website.product
-    </select>
-
 </mapper>
